@@ -1,28 +1,19 @@
-import './App.css';
+import Menu from './Components/Activities/Menu';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Fixed typo
+import NumberGuessingGame from './Pages/NumberGuessingGame';
+import RockPaperScissor  from './Pages/RockPaperScissors';
+import CoinFlip from './Pages/CoinFlip';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
+    <Router>
+      <Menu />
+      <Routes>
+        <Route path="/number-guessing" element={<NumberGuessingGame />} />
+        <Route path="/rock-paper-scissors" element={<RockPaperScissor />} />
+        <Route path="/coin-flip" element={<CoinFlip />} />
+      </Routes>
+    </Router>
   );
 }
 
